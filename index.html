@@ -79,8 +79,8 @@ p{font-size:.9375rem;color:var(--text-light);line-height:1.6}
 .logo,.ft-logo{display:flex;align-items:center;flex-shrink:0}
 .dell-logo-img{height:40px;width:auto;display:block}
 .ft-brand .dell-logo-img{height:32px;filter:brightness(0) invert(1)}
-.main-nav{display:flex;align-items:center;flex:1;padding:0 24px}
-.nav-list{display:flex;align-items:center;height:64px}
+.main-nav{display:flex;align-items:center;flex:1;padding:0 24px;overflow:visible}
+.nav-list{display:flex;align-items:center;height:64px;overflow:visible}
 .nav-item{position:relative;height:64px;display:flex;align-items:center}
 .nav-link{display:flex;align-items:center;gap:4px;height:64px;padding:0 16px;font-size:.875rem;font-weight:400;color:#1a1a1a;border-bottom:3px solid transparent;transition:color var(--t),border-color var(--t);white-space:nowrap}
 .nav-link .fa-chevron-down{font-size:.6rem;transition:transform var(--t)}
@@ -293,7 +293,8 @@ p{font-size:.9375rem;color:var(--text-light);line-height:1.6}
 /* ===== MOBILE NAV DRAWER (Dell exact two-panel) ===== */
 .mob-nav-hdr{display:none}
 .mob-nav-footer{display:none}
-.mob-l1{display:contents}/* desktop: transparent wrapper */
+/* Desktop: mob-l1 is a transparent flex passthrough — no display:contents (breaks position:absolute mega menus in Chromium) */
+.mob-l1{display:flex;flex:1;align-items:center;min-width:0;overflow:visible;position:static}
 
 @media(max-width:900px){
   .util-bar{display:none}
