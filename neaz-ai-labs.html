@@ -293,6 +293,8 @@ p{font-size:.9375rem;color:var(--text-light);line-height:1.6}
 /* ===== MOBILE NAV DRAWER (Dell exact two-panel) ===== */
 .mob-nav-hdr{display:none}
 .mob-nav-footer{display:none}
+/* Sub-panels injected by JS — must be hidden on desktop; mobile 900px block overrides to display:flex */
+.mob-subpanel{display:none}
 /* Desktop: mob-l1 is a transparent flex passthrough — no display:contents (breaks position:absolute mega menus in Chromium) */
 .mob-l1{display:flex;flex:1;align-items:center;min-width:0;overflow:visible;position:static}
 
