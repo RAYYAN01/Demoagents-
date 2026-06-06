@@ -64,59 +64,50 @@ p{font-size:.9375rem;color:var(--text-light);line-height:1.6}
 .sec-hdr .see-all{color:var(--blue);font-size:.875rem;font-weight:700;transition:color var(--t)}
 .sec-hdr .see-all:hover{color:var(--blue-dark)}
 
-/* ===== ANNOUNCE BAR ===== */
-.ann-bar{background:var(--navy);color:var(--white);text-align:center;padding:8px 24px;font-size:.8125rem}
-.ann-bar a{color:#6DD5FA;font-weight:700;margin-left:8px}
-.ann-bar a:hover{text-decoration:underline}
-
 /* ===== UTILITY BAR ===== */
-.util-bar{background:#1a1a2e;border-bottom:1px solid rgba(255,255,255,.08)}
-.util-inner{display:flex;align-items:center;justify-content:space-between;height:40px;gap:16px}
-.util-left{display:flex}
-.util-tab{color:rgba(255,255,255,.65);font-size:.8rem;padding:0 14px;height:40px;border-bottom:3px solid transparent;transition:color var(--t),border-color var(--t);font-weight:500}
-.util-tab:hover,.util-tab.active{color:var(--white);border-bottom-color:var(--blue)}
-.util-right{display:flex;align-items:center;gap:16px}
-.util-right a{color:rgba(255,255,255,.65);font-size:.78rem;display:flex;align-items:center;gap:5px;transition:color var(--t)}
+.util-bar{background:#1a1a1a;border-bottom:none}
+.util-inner{display:flex;align-items:center;justify-content:flex-end;height:36px;gap:0}
+.util-right{display:flex;align-items:center}
+.util-right a{color:rgba(255,255,255,.7);font-size:.75rem;display:flex;align-items:center;gap:5px;transition:color var(--t);padding:0 12px;height:36px}
 .util-right a:hover{color:var(--white)}
-.util-div{width:1px;height:16px;background:rgba(255,255,255,.2)}
+.util-div{width:1px;height:14px;background:rgba(255,255,255,.25);margin:0 2px}
 
 /* ===== HEADER / NAV ===== */
-.main-hdr{position:sticky;top:0;z-index:1000;background:var(--white);box-shadow:0 2px 8px rgba(0,0,0,.08);transition:box-shadow var(--t)}
-.main-hdr.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.15)}
-.nav-inner{display:flex;align-items:center;height:60px;gap:32px}
+.main-hdr{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid #dce0e5;transition:box-shadow var(--t)}
+.main-hdr.scrolled{box-shadow:0 2px 12px rgba(0,0,0,.1)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;gap:0}
 .logo,.ft-logo{display:flex;align-items:center;flex-shrink:0}
-.dell-logo-img{height:44px;width:auto;display:block}
-.ft-brand .dell-logo-img{height:36px;filter:brightness(0) invert(1)}
-.main-nav{flex:1}
-.nav-list{display:flex;align-items:center}
-.nav-item{position:relative}
-.nav-link{display:flex;align-items:center;gap:5px;height:60px;padding:0 14px;font-size:.875rem;font-weight:500;color:var(--text);border-bottom:3px solid transparent;transition:color var(--t),border-color var(--t);white-space:nowrap}
-.nav-link .fa-chevron-down{font-size:.65rem;transition:transform var(--t)}
-.nav-item:hover .nav-link{color:var(--blue);border-bottom-color:var(--blue)}
+.dell-logo-img{height:40px;width:auto;display:block}
+.ft-brand .dell-logo-img{height:32px;filter:brightness(0) invert(1)}
+.main-nav{display:flex;align-items:center;flex:1;padding:0 24px}
+.nav-list{display:flex;align-items:center;height:64px}
+.nav-item{position:relative;height:64px;display:flex;align-items:center}
+.nav-link{display:flex;align-items:center;gap:4px;height:64px;padding:0 16px;font-size:.875rem;font-weight:400;color:#1a1a1a;border-bottom:3px solid transparent;transition:color var(--t),border-color var(--t);white-space:nowrap}
+.nav-link .fa-chevron-down{font-size:.6rem;transition:transform var(--t)}
+.nav-item:hover>.nav-link{color:var(--blue);border-bottom-color:var(--blue)}
 .nav-item:hover .fa-chevron-down{transform:rotate(180deg)}
-.mega{position:absolute;top:100%;left:50%;background:var(--white);border-top:3px solid var(--blue);border-radius:0 0 var(--rl) var(--rl);box-shadow:var(--shadow-lg);display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));min-width:680px;opacity:0;visibility:hidden;transform:translateX(-50%) translateY(-8px);transition:opacity .2s,transform .2s,visibility .2s;z-index:999}
-.nav-item:hover .mega{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
-.mega-col{padding:24px 20px;border-right:1px solid var(--gray-200)}
+.mega{position:absolute;top:64px;left:0;background:var(--white);border-top:2px solid var(--blue);box-shadow:0 8px 32px rgba(0,0,0,.14);display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));min-width:700px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .18s,transform .18s,visibility .18s;z-index:999}
+.nav-item:hover .mega{opacity:1;visibility:visible;transform:translateY(0)}
+.mega-col{padding:28px 24px;border-right:1px solid var(--gray-200)}
 .mega-col:last-child{border-right:none}
-.mega-col h4{color:var(--text);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--gray-200)}
-.mega-col ul li{margin-bottom:8px}
-.mega-col ul li a{font-size:.875rem;color:var(--text-light);transition:color var(--t),padding-left var(--t);display:block}
-.mega-col ul li a:hover{color:var(--blue);padding-left:4px}
-.mega-promo{background:var(--gray-100)}
-.promo-badge{display:inline-block;background:var(--blue);color:var(--white);font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:12px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em}
-.mega-promo h5{font-size:.95rem;text-transform:none;letter-spacing:0;color:var(--navy);margin-bottom:6px}
-.mega-promo>p{font-size:.8125rem;margin-bottom:12px}
-.nav-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
-.nav-icon-btn{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:var(--r);color:var(--text);font-size:.9rem;transition:background var(--t),color var(--t)}
+.mega-col h4{color:#1a1a1a;font-size:.75rem;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--gray-200);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.mega-col ul li{margin-bottom:10px}
+.mega-col ul li a{font-size:.875rem;color:#444;transition:color var(--t);display:block;font-weight:400}
+.mega-col ul li a:hover{color:var(--blue)}
+.mega-promo{background:#f5f8fc}
+.promo-badge{display:inline-block;background:var(--blue);color:var(--white);font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:10px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em}
+.mega-promo h5{font-size:.9375rem;text-transform:none;letter-spacing:0;color:var(--navy);margin-bottom:6px;font-weight:600}
+.mega-promo>p{font-size:.8rem;margin-bottom:12px}
+.nav-actions{display:flex;align-items:center;gap:4px;flex-shrink:0}
+.nav-icon-btn{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border-radius:50%;color:#1a1a1a;font-size:.95rem;transition:background var(--t),color var(--t)}
 .nav-icon-btn:hover{background:var(--gray-100);color:var(--blue)}
-.btn-cta-nav{background:var(--blue);color:var(--white);padding:7px 18px;border-radius:var(--r);font-size:.8125rem;font-weight:700;transition:background var(--t)}
-.btn-cta-nav:hover{background:var(--blue-dark)}
-.hamburger{display:none;flex-direction:column;gap:5px;width:36px;height:36px;align-items:center;justify-content:center}
-.hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:transform var(--t),opacity var(--t)}
-.search-wrap{display:none;border-top:1px solid var(--gray-200);background:var(--white);padding:14px 0}
+.hamburger{display:none;flex-direction:column;gap:5px;width:38px;height:38px;align-items:center;justify-content:center}
+.hamburger span{display:block;width:22px;height:2px;background:#1a1a1a;border-radius:2px;transition:transform var(--t),opacity var(--t)}
+.search-wrap{display:none;border-top:1px solid var(--gray-200);background:var(--white);padding:12px 0}
 .search-wrap.open{display:block}
-.search-inner{display:flex;align-items:center;gap:12px;border:2px solid var(--blue);border-radius:var(--r);padding:0 16px;max-width:600px;margin:0 auto}
-.search-inner i{color:var(--blue)}
+.search-inner{display:flex;align-items:center;gap:12px;border:1px solid #c0c8d2;border-radius:24px;padding:0 20px;max-width:640px;margin:0 auto;transition:border-color var(--t),box-shadow var(--t)}
+.search-inner:focus-within{border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,118,206,.12)}
+.search-inner i{color:#888}
 .search-inner input{flex:1;border:none;outline:none;padding:10px 0;font-size:.9375rem;color:var(--text)}
 .search-close{color:var(--gray-400);transition:color var(--t)}
 .search-close:hover{color:var(--text)}
@@ -254,23 +245,24 @@ p{font-size:.9375rem;color:var(--text-light);line-height:1.6}
 .nl-form .btn{border-radius:0 var(--r) var(--r) 0}
 
 /* ===== FOOTER ===== */
-.site-footer{background:#0A0F24;color:rgba(255,255,255,.75);padding-top:56px}
-.ft-grid{display:grid;grid-template-columns:1.8fr repeat(5,1fr);gap:40px;padding-bottom:48px}
-.ft-brand .ft-logo{margin-bottom:16px}
-.ft-brand p{font-size:.8125rem;color:rgba(255,255,255,.55);max-width:220px;margin-bottom:20px}
-.social{display:flex;gap:10px}
-.social a{width:34px;height:34px;border:1px solid rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);font-size:.8rem;transition:background var(--t),border-color var(--t),color var(--t)}
+.site-footer{background:#1d1d1d;color:rgba(255,255,255,.7)}
+.ft-top-row{display:flex;align-items:center;justify-content:space-between;padding:36px 0 28px;border-bottom:1px solid rgba(255,255,255,.1)}
+.ft-top-row .dell-logo-img{height:32px;filter:brightness(0) invert(1)}
+.social{display:flex;align-items:center;gap:8px}
+.social a{width:36px;height:36px;border:1px solid rgba(255,255,255,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.65);font-size:.85rem;transition:background var(--t),border-color var(--t),color var(--t)}
 .social a:hover{background:var(--blue);border-color:var(--blue);color:var(--white)}
-.ft-col h5{color:var(--white);margin-bottom:16px}
-.ft-col ul li{margin-bottom:9px}
-.ft-col ul li a{font-size:.8125rem;color:rgba(255,255,255,.55);transition:color var(--t)}
+.ft-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:32px;padding:36px 0 40px}
+.ft-col h5{color:var(--white);margin-bottom:16px;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em}
+.ft-col ul li{margin-bottom:10px}
+.ft-col ul li a{font-size:.8125rem;color:rgba(255,255,255,.55);transition:color var(--t);line-height:1.4}
 .ft-col ul li a:hover{color:var(--white)}
-.ft-bottom{border-top:1px solid rgba(255,255,255,.1);padding:16px 0}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.1);padding:18px 0}
 .ft-bottom-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.ft-bottom p{font-size:.78rem;color:rgba(255,255,255,.4)}
-.ft-legal{display:flex;gap:20px}
-.ft-legal a{font-size:.78rem;color:rgba(255,255,255,.4);transition:color var(--t)}
-.ft-legal a:hover{color:rgba(255,255,255,.8)}
+.ft-bottom p{font-size:.75rem;color:rgba(255,255,255,.35)}
+.ft-legal{display:flex;gap:0;flex-wrap:wrap}
+.ft-legal a{font-size:.75rem;color:rgba(255,255,255,.45);transition:color var(--t);padding:0 12px;border-right:1px solid rgba(255,255,255,.2)}
+.ft-legal a:last-child{border-right:none}
+.ft-legal a:hover{color:rgba(255,255,255,.9)}
 .mob-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:998}
 .mob-overlay.active{display:block}
 
@@ -279,8 +271,7 @@ p{font-size:.9375rem;color:var(--text-light);line-height:1.6}
   .feat-grid{grid-template-columns:repeat(2,1fr)}
   .cat-grid{grid-template-columns:repeat(4,1fr)}
   .trust-grid{grid-template-columns:repeat(3,1fr)}
-  .ft-grid{grid-template-columns:1fr 1fr 1fr}
-  .ft-brand{grid-column:1/-1}
+  .ft-grid{grid-template-columns:repeat(3,1fr)}
 }
 @media(max-width:900px){
   .util-bar{display:none}
@@ -315,7 +306,7 @@ p{font-size:.9375rem;color:var(--text-light);line-height:1.6}
 }
 @media(max-width:600px){
   .ft-grid{grid-template-columns:1fr 1fr}
-  .ft-brand{grid-column:1/-1}
+  .ft-top-row{flex-direction:column;gap:16px;align-items:flex-start}
 }
 @media(max-width:480px){
   .cat-card{padding:16px 8px}
@@ -329,25 +320,17 @@ p{font-size:.9375rem;color:var(--text-light);line-height:1.6}
 </head>
 <body>
 
-<!-- Announcement Bar -->
-<div class="ann-bar">
-  <span><i class="fas fa-tag"></i>&nbsp; Limited Offer: 20% off AI Consulting packages this month. <a href="#">Claim Now &rsaquo;</a></span>
-</div>
-
 <!-- Utility Bar -->
 <div class="util-bar">
   <div class="container util-inner">
-    <div class="util-left">
-      <button class="util-tab active">For Startups</button>
-      <button class="util-tab">For Enterprise</button>
-      <button class="util-tab">For Government</button>
-    </div>
     <div class="util-right">
-      <a href="tel:+919999999999"><i class="fas fa-phone"></i> +91 99999 99999</a>
-      <a href="#"><i class="fas fa-comments"></i> Chat</a>
+      <a href="#"><i class="fas fa-globe"></i> India</a>
+      <span class="util-div"></span>
       <a href="#"><i class="fas fa-headset"></i> Support</a>
       <span class="util-div"></span>
-      <a href="#"><i class="fas fa-globe"></i> India (EN)</a>
+      <a href="#"><i class="fas fa-shopping-cart"></i> Order Status</a>
+      <span class="util-div"></span>
+      <a href="#"><i class="fas fa-user"></i> Sign In</a>
     </div>
   </div>
 </div>
@@ -362,38 +345,39 @@ p{font-size:.9375rem;color:var(--text-light);line-height:1.6}
     <nav class="main-nav" id="mainNav">
       <ul class="nav-list">
         <li class="nav-item has-mega">
-          <a href="#" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
+          <a href="#" class="nav-link">Products <i class="fas fa-chevron-down"></i></a>
           <div class="mega">
-            <div class="mega-col"><h4>AI Solutions</h4><ul><li><a href="#">Machine Learning</a></li><li><a href="#">Deep Learning</a></li><li><a href="#">Computer Vision</a></li><li><a href="#">NLP</a></li></ul></div>
-            <div class="mega-col"><h4>Data Services</h4><ul><li><a href="#">Data Analytics</a></li><li><a href="#">Business Intelligence</a></li><li><a href="#">Data Engineering</a></li><li><a href="#">Predictive Analytics</a></li></ul></div>
-            <div class="mega-col"><h4>Automation</h4><ul><li><a href="#">RPA</a></li><li><a href="#">Intelligent Automation</a></li><li><a href="#">Workflow Optimization</a></li><li><a href="#">AI Agents</a></li></ul></div>
-            <div class="mega-col mega-promo"><span class="promo-badge">New</span><h5>GenAI Platform</h5><p>Deploy your own LLM infrastructure.</p><a href="#" class="btn-link">Learn More &rsaquo;</a></div>
+            <div class="mega-col"><h4>PCs &amp; Laptops</h4><ul><li><a href="#">Laptops &amp; 2-in-1s</a></li><li><a href="#">Desktops &amp; All-in-Ones</a></li><li><a href="#">Monitors</a></li><li><a href="#">Workstations</a></li><li><a href="#">Thin Clients</a></li></ul></div>
+            <div class="mega-col"><h4>Infrastructure</h4><ul><li><a href="#">Servers</a></li><li><a href="#">Storage</a></li><li><a href="#">Networking</a></li><li><a href="#">Converged Infrastructure</a></li><li><a href="#">HPC</a></li></ul></div>
+            <div class="mega-col"><h4>Software &amp; Cloud</h4><ul><li><a href="#">Dell APEX</a></li><li><a href="#">VMware Solutions</a></li><li><a href="#">Data Protection</a></li><li><a href="#">Cloud Management</a></li></ul></div>
+            <div class="mega-col mega-promo"><span class="promo-badge">New</span><h5>Dell APEX Cloud Platform</h5><p>Flexible cloud-as-a-service solutions for any workload.</p><a href="#" class="btn-link">Learn More &rsaquo;</a></div>
           </div>
         </li>
         <li class="nav-item has-mega">
           <a href="#" class="nav-link">Solutions <i class="fas fa-chevron-down"></i></a>
           <div class="mega">
-            <div class="mega-col"><h4>By Industry</h4><ul><li><a href="#">Healthcare AI</a></li><li><a href="#">FinTech</a></li><li><a href="#">Retail Intelligence</a></li><li><a href="#">Manufacturing AI</a></li></ul></div>
-            <div class="mega-col"><h4>By Size</h4><ul><li><a href="#">Startups</a></li><li><a href="#">SMBs</a></li><li><a href="#">Enterprises</a></li><li><a href="#">Government</a></li></ul></div>
-            <div class="mega-col"><h4>Cloud &amp; Infra</h4><ul><li><a href="#">AWS AI</a></li><li><a href="#">Azure OpenAI</a></li><li><a href="#">Google Cloud AI</a></li><li><a href="#">Private Cloud</a></li></ul></div>
+            <div class="mega-col"><h4>By Technology</h4><ul><li><a href="#">AI &amp; Machine Learning</a></li><li><a href="#">Cloud &amp; Multicloud</a></li><li><a href="#">Cyber Security</a></li><li><a href="#">Modern Workplace</a></li><li><a href="#">Edge Computing</a></li></ul></div>
+            <div class="mega-col"><h4>By Industry</h4><ul><li><a href="#">Financial Services</a></li><li><a href="#">Healthcare</a></li><li><a href="#">Manufacturing</a></li><li><a href="#">Government</a></li><li><a href="#">Telecommunications</a></li></ul></div>
+            <div class="mega-col"><h4>By Business Size</h4><ul><li><a href="#">Small Business</a></li><li><a href="#">Mid-Size Business</a></li><li><a href="#">Enterprise</a></li><li><a href="#">Public Sector</a></li></ul></div>
           </div>
         </li>
         <li class="nav-item has-mega">
-          <a href="#" class="nav-link">Products <i class="fas fa-chevron-down"></i></a>
+          <a href="#" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
           <div class="mega">
-            <div class="mega-col"><h4>AI Platforms</h4><ul><li><a href="#">Dell Technologies Studio</a></li><li><a href="#">Dell Technologies DataHub</a></li><li><a href="#">Dell Technologies AutoML</a></li><li><a href="#">Dell Technologies Vision</a></li></ul></div>
-            <div class="mega-col"><h4>APIs &amp; SDKs</h4><ul><li><a href="#">NLP API</a></li><li><a href="#">Vision API</a></li><li><a href="#">Prediction API</a></li><li><a href="#">Docs</a></li></ul></div>
+            <div class="mega-col"><h4>Support Services</h4><ul><li><a href="#">ProSupport</a></li><li><a href="#">ProSupport Plus</a></li><li><a href="#">ProSupport Flex</a></li><li><a href="#">Basic Hardware Service</a></li></ul></div>
+            <div class="mega-col"><h4>Deployment &amp; IT</h4><ul><li><a href="#">Deployment Services</a></li><li><a href="#">Managed Services</a></li><li><a href="#">Residency Services</a></li><li><a href="#">Consulting Services</a></li></ul></div>
+            <div class="mega-col"><h4>Training</h4><ul><li><a href="#">Dell Technologies Education</a></li><li><a href="#">Certification Programs</a></li><li><a href="#">On-Demand Learning</a></li><li><a href="#">Custom Training</a></li></ul></div>
           </div>
         </li>
         <li class="nav-item"><a href="#" class="nav-link">Support</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Partners</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Contact Us</a></li>
       </ul>
     </nav>
 
     <div class="nav-actions">
-      <button class="nav-icon-btn" id="srchBtn"><i class="fas fa-search"></i></button>
-      <a href="#" class="nav-icon-btn"><i class="fas fa-user"></i></a>
-      <a href="#" class="btn-cta-nav">Get Started</a>
+      <button class="nav-icon-btn" id="srchBtn" title="Search"><i class="fas fa-search"></i></button>
+      <a href="#" class="nav-icon-btn" title="Cart"><i class="fas fa-shopping-cart"></i></a>
       <button class="hamburger" id="hbg"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -615,25 +599,90 @@ p{font-size:.9375rem;color:var(--text-light);line-height:1.6}
 
 <!-- Footer -->
 <footer class="site-footer">
+  <!-- Logo + Social Row -->
+  <div class="container ft-top-row">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Dell_Technologies_logo.svg" alt="Dell Technologies" class="dell-logo-img">
+    <div class="social">
+      <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" title="Twitter / X"><i class="fab fa-twitter"></i></a>
+      <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+  <!-- Link Columns -->
   <div class="container ft-grid">
-    <div class="ft-col ft-brand">
-      <a href="#" class="ft-logo logo"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Dell_Technologies_logo.svg" alt="Dell Technologies" class="dell-logo-img"></a>
-      <p>Empowering businesses with cutting-edge artificial intelligence solutions built for the modern world.</p>
-      <div class="social">
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
-        <a href="#"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
+    <div class="ft-col">
+      <h5>Products</h5>
+      <ul>
+        <li><a href="#">Laptops &amp; 2-in-1s</a></li>
+        <li><a href="#">Desktops &amp; All-in-Ones</a></li>
+        <li><a href="#">Monitors &amp; Displays</a></li>
+        <li><a href="#">Servers</a></li>
+        <li><a href="#">Storage</a></li>
+        <li><a href="#">Networking</a></li>
+        <li><a href="#">Accessories</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h5>Solutions</h5>
+      <ul>
+        <li><a href="#">AI &amp; Machine Learning</a></li>
+        <li><a href="#">Cloud Solutions</a></li>
+        <li><a href="#">Cyber Security</a></li>
+        <li><a href="#">HPC</a></li>
+        <li><a href="#">Modern Workplace</a></li>
+        <li><a href="#">Edge Computing</a></li>
+        <li><a href="#">Hybrid Cloud</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#">ProSupport</a></li>
+        <li><a href="#">Deployment Services</a></li>
+        <li><a href="#">Managed Services</a></li>
+        <li><a href="#">Consulting Services</a></li>
+        <li><a href="#">Residency Services</a></li>
+        <li><a href="#">Training &amp; Certification</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h5>Support</h5>
+      <ul>
+        <li><a href="#">Contact Technical Support</a></li>
+        <li><a href="#">Order Status</a></li>
+        <li><a href="#">Drivers &amp; Downloads</a></li>
+        <li><a href="#">Product Manuals</a></li>
+        <li><a href="#">Warranty &amp; Contracts</a></li>
+        <li><a href="#">Service Request</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h5>About</h5>
+      <ul>
+        <li><a href="#">About Dell Technologies</a></li>
+        <li><a href="#">Investor Relations</a></li>
+        <li><a href="#">Sustainability</a></li>
+        <li><a href="#">Partners</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Newsroom</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- Bottom Bar -->
+  <div class="ft-bottom">
+    <div class="container ft-bottom-inner">
+      <p>&copy; 2025 Dell Inc. All rights reserved.</p>
+      <div class="ft-legal">
+        <a href="#">Privacy Statement</a>
+        <a href="#">Terms &amp; Conditions</a>
+        <a href="#">Ads &amp; Emails</a>
+        <a href="#">Accessibility</a>
+        <a href="#">Sitemap</a>
       </div>
     </div>
-    <div class="ft-col"><h5>Services</h5><ul><li><a href="#">Machine Learning</a></li><li><a href="#">Generative AI</a></li><li><a href="#">Computer Vision</a></li><li><a href="#">NLP Solutions</a></li><li><a href="#">Data Analytics</a></li><li><a href="#">Automation</a></li></ul></div>
-    <div class="ft-col"><h5>Solutions</h5><ul><li><a href="#">For Startups</a></li><li><a href="#">For Enterprise</a></li><li><a href="#">For Government</a></li><li><a href="#">Healthcare AI</a></li><li><a href="#">FinTech AI</a></li><li><a href="#">Retail AI</a></li></ul></div>
-    <div class="ft-col"><h5>Company</h5><ul><li><a href="#">About Dell Technologies</a></li><li><a href="#">Leadership Team</a></li><li><a href="#">Careers</a></li><li><a href="#">Press &amp; Media</a></li><li><a href="#">Partners</a></li><li><a href="#">Investors</a></li></ul></div>
-    <div class="ft-col"><h5>Resources</h5><ul><li><a href="#">Documentation</a></li><li><a href="#">API Reference</a></li><li><a href="#">Blog &amp; Insights</a></li><li><a href="#">Case Studies</a></li><li><a href="#">Dell Technologies Academy</a></li><li><a href="#">Community</a></li></ul></div>
-    <div class="ft-col"><h5>Support</h5><ul><li><a href="#">Help Center</a></li><li><a href="#">Contact Sales</a></li><li><a href="#">System Status</a></li><li><a href="#">SLA &amp; Uptime</a></li><li><a href="#">Security</a></li><li><a href="#">Compliance</a></li></ul></div>
   </div>
-  <div class="ft-bottom"><div class="container ft-bottom-inner"><p>&copy; 2025 Dell Technologies Inc. All rights reserved.</p><div class="ft-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookie Policy</a><a href="#">Sitemap</a></div></div></div>
 </footer>
 
 <div class="mob-overlay" id="mobOverlay"></div>
@@ -673,8 +722,6 @@ document.getElementById('srchBtn').onclick=()=>{sb.classList.toggle('open');if(s
 document.getElementById('srchClose').onclick=()=>sb.classList.remove('open');
 document.addEventListener('keydown',e=>{if(e.key==='Escape')sb.classList.remove('open');});
 
-// Util tabs
-document.querySelectorAll('.util-tab').forEach(t=>t.onclick=function(){document.querySelectorAll('.util-tab').forEach(x=>x.classList.remove('active'));this.classList.add('active');});
 
 // Scroll reveal
 const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
