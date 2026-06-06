@@ -290,54 +290,65 @@ p{font-size:.9375rem;color:var(--text-light);line-height:1.6}
   .trust-grid{grid-template-columns:repeat(3,1fr)}
   .ft-grid{grid-template-columns:repeat(3,1fr)}
 }
-/* ===== MOBILE NAV DRAWER (Dell-style) ===== */
+/* ===== MOBILE NAV DRAWER (Dell exact two-panel) ===== */
 .mob-nav-hdr{display:none}
 .mob-nav-footer{display:none}
+.mob-l1{display:contents}/* desktop: transparent wrapper */
 
 @media(max-width:900px){
   .util-bar{display:none}
 
-  /* Drawer panel */
-  .main-nav{position:fixed;top:0;left:-100%;width:min(340px,88vw);height:100vh;height:100dvh;background:var(--white);z-index:999;overflow:hidden;transition:left .28s cubic-bezier(.4,0,.2,1);box-shadow:4px 0 32px rgba(0,0,0,.18);display:flex;flex-direction:column}
+  /* ── Outer drawer container ── */
+  .main-nav{position:fixed;top:0;left:-100%;width:min(360px,90vw);height:100vh;height:100dvh;background:var(--white);z-index:999;overflow:hidden;transition:left .3s cubic-bezier(.4,0,.2,1);box-shadow:4px 0 40px rgba(0,0,0,.22)}
   .main-nav.open{left:0}
 
-  /* Drawer header */
-  .mob-nav-hdr{display:flex;align-items:center;justify-content:space-between;padding:0 8px 0 4px;height:calc(56px + env(safe-area-inset-top));padding-top:env(safe-area-inset-top);border-bottom:1px solid var(--gray-200);flex-shrink:0;background:var(--white);position:sticky;top:0;z-index:5}
-  .mob-close-btn{width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:#1a1a1a;font-size:1.125rem;border-radius:50%;transition:background var(--t);flex-shrink:0}
-  .mob-close-btn:hover{background:var(--gray-100)}
+  /* ── L1 panel (the top-level list) ── */
+  .mob-l1{display:flex;flex-direction:column;position:absolute;inset:0;transition:transform .3s cubic-bezier(.4,0,.2,1);overflow:hidden}
+  .mob-l1.shifted{transform:translateX(-100%)}
+
+  /* ── Shared drawer header ── */
+  .mob-nav-hdr{display:flex;align-items:center;justify-content:space-between;padding:0 6px;height:calc(56px + env(safe-area-inset-top));padding-top:env(safe-area-inset-top);border-bottom:1px solid var(--gray-200);flex-shrink:0;background:var(--white);z-index:5}
+  .mob-close-btn,.mob-back-btn{width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:#1a1a1a;font-size:1.1rem;border-radius:50%;transition:background var(--t);flex-shrink:0;touch-action:manipulation}
+  .mob-close-btn:active,.mob-back-btn:active{background:var(--gray-100)}
   .mob-nav-logo{display:flex;align-items:center;flex-shrink:0}
   .mob-user-btn{width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:#1a1a1a;font-size:1.25rem;border-radius:50%;transition:background var(--t);flex-shrink:0}
-  .mob-user-btn:hover{background:var(--gray-100)}
+  .mob-user-btn:active{background:var(--gray-100)}
 
-  /* Scrollable nav items area */
+  /* ── L1 nav list ── */
   .nav-list{flex-direction:column;align-items:stretch;flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:4px 0}
-  .nav-item{height:auto;position:relative}
-  .nav-link{height:auto;min-height:52px;padding:0 20px;font-size:1.0625rem;font-weight:400;color:#1a1a1a;border-bottom:none;display:flex;align-items:center;justify-content:space-between;transition:background var(--t)}
+  .nav-item{height:auto}
+  .nav-link{height:auto;min-height:52px;padding:0 20px;font-size:1.0625rem;font-weight:400;color:#1a1a1a;border-bottom:none;display:flex;align-items:center;justify-content:space-between;transition:background var(--t);gap:12px}
   .nav-link:active{background:var(--gray-100)}
-  /* Rotate down-chevron to face right on mobile */
-  .nav-link .fa-chevron-down{font-size:.7rem;color:#aaa;transform:rotate(-90deg);transition:transform var(--t);margin-left:auto}
-  .nav-item.open>.nav-link .fa-chevron-down{transform:rotate(0deg)}
+  .nav-link .fa-chevron-down{font-size:.7rem;color:#aaa;transform:rotate(-90deg);flex-shrink:0}
 
-  /* Expanded mega — inline accordion */
-  .mega{position:static;transform:none;min-width:100%;grid-template-columns:1fr;box-shadow:none;border:none;border-top:1px solid var(--gray-200);display:none;opacity:1;visibility:visible;background:var(--gray-100)}
-  .nav-item.open .mega{display:grid}
-  .mega-col{border-right:none;border-bottom:1px solid var(--gray-200);padding:18px 20px}
-  .mega-col h4{font-size:.7rem;color:#888;margin-bottom:10px}
-  .mega-col ul li a{padding:6px 0;display:block;font-size:.9rem;color:#333}
+  /* Hide desktop mega on mobile — sub-panels handle it */
+  .mega{display:none!important}
 
-  /* Mobile footer section */
+  /* ── L1 footer section ── */
   .mob-nav-footer{display:flex;flex-direction:column;flex-shrink:0;padding-bottom:max(12px,env(safe-area-inset-bottom));background:var(--white)}
-  .mob-nav-div{height:1px;background:var(--gray-200);margin:0}
-  .mob-biz-link{display:block;padding:16px 20px;font-size:1rem;font-weight:700;color:#1a1a1a;transition:color var(--t)}
-  .mob-biz-link:hover{color:var(--blue)}
+  .mob-nav-div{height:1px;background:var(--gray-200)}
+  .mob-biz-link{display:block;padding:16px 20px;font-size:1rem;font-weight:700;color:#1a1a1a;transition:background var(--t)}
+  .mob-biz-link:active{background:var(--gray-100)}
   .mob-contact-link,.mob-region-link{display:flex;align-items:center;gap:14px;padding:14px 20px;font-size:.9375rem;color:#1a1a1a;min-height:48px;transition:background var(--t)}
   .mob-region-link{justify-content:space-between}
   .mob-region-left{display:flex;align-items:center;gap:14px}
-  .mob-contact-link i,.mob-region-left i{color:#666;font-size:1rem;width:18px;text-align:center}
+  .mob-contact-link i,.mob-region-left i{color:#555;font-size:1rem;width:20px;text-align:center}
   .mob-chev{color:#aaa;font-size:.75rem}
   .mob-contact-link:active,.mob-region-link:active{background:var(--gray-100)}
 
-  /* Other layout fixes */
+  /* ── L2 sub-panel ── */
+  .mob-subpanel{position:absolute;inset:0;background:var(--white);transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;overflow:hidden;z-index:2}
+  .mob-subpanel.sp-active{transform:translateX(0)}
+  .mob-sp-hdr{display:flex;align-items:center;justify-content:space-between;padding:0 6px;height:calc(56px + env(safe-area-inset-top));padding-top:env(safe-area-inset-top);border-bottom:1px solid var(--gray-200);flex-shrink:0}
+  .mob-sp-title{font-size:1rem;font-weight:600;color:#1a1a1a;flex:1;text-align:center;padding:0 8px}
+  .mob-sp-body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
+  .mob-subsection{border-bottom:1px solid var(--gray-200)}
+  .mob-subsec-hdr{font-size:.7rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#888;padding:16px 20px 10px;border-bottom:1px solid var(--gray-200)}
+  .mob-subsection ul{padding:4px 0}
+  .mob-subsection ul li a{display:block;padding:13px 20px;font-size:1rem;color:#1a1a1a;transition:background var(--t);white-space:normal;word-break:normal}
+  .mob-subsection ul li a:active{background:var(--gray-100)}
+
+  /* ── Other layout fixes ── */
   .hamburger{display:flex}
   .btn-cta-nav{display:none}
   .hero{height:480px}
@@ -446,8 +457,10 @@ p{font-size:.9375rem;color:var(--text-light);line-height:1.6}
     </a>
 
     <nav class="main-nav" id="mainNav">
-      <!-- Mobile drawer header: X · logo · user -->
-      <div class="mob-nav-hdr">
+      <!-- L1: Top-level panel -->
+      <div class="mob-l1" id="mobL1">
+        <!-- Mobile drawer header: X · logo · user -->
+        <div class="mob-nav-hdr">
         <button class="mob-close-btn" id="mobNavClose" aria-label="Close menu"><i class="fas fa-times"></i></button>
         <a href="#" class="mob-nav-logo">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1017 132" width="130" height="17" aria-label="Dell Technologies" focusable="false">
@@ -499,6 +512,8 @@ p{font-size:.9375rem;color:var(--text-light);line-height:1.6}
           <i class="fas fa-chevron-right mob-chev"></i>
         </a>
       </div>
+      </div><!-- /mob-l1 -->
+      <!-- L2 sub-panels injected by JS -->
     </nav>
 
     <div class="nav-actions">
@@ -886,15 +901,63 @@ track.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true}
 track.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50){dx<0?nxt():prv();startAuto();}},{passive:true});
 startAuto();
 
-// Mobile nav
-const hbg=document.getElementById('hbg'),nav=document.getElementById('mainNav'),ov=document.getElementById('mobOverlay');
+// ── Mobile nav: Dell-style two-panel slide ──
+const hbg=document.getElementById('hbg'),nav=document.getElementById('mainNav'),ov=document.getElementById('mobOverlay'),mobL1=document.getElementById('mobL1');
 const mobClose=document.getElementById('mobNavClose');
-function openNav(){nav.classList.add('open');ov.classList.add('active');document.body.style.overflow='hidden';document.documentElement.style.overflow='hidden';}
-function closeNav(){nav.classList.remove('open');ov.classList.remove('active');document.body.style.overflow='';document.documentElement.style.overflow='';document.querySelectorAll('.nav-item.open').forEach(e=>e.classList.remove('open'));}
+let activePanel=null;
+
+function openNav(){nav.classList.add('open');ov.classList.add('active');hbg.style.visibility='hidden';document.body.style.overflow='hidden';document.documentElement.style.overflow='hidden';}
+function closeNav(){
+  closeSubPanel(false);
+  nav.classList.remove('open');ov.classList.remove('active');
+  hbg.style.visibility='';
+  document.body.style.overflow='';document.documentElement.style.overflow='';
+}
+function openSubPanel(panel){if(activePanel)activePanel.classList.remove('sp-active');panel.classList.add('sp-active');mobL1.classList.add('shifted');activePanel=panel;}
+function closeSubPanel(){if(activePanel){activePanel.classList.remove('sp-active');activePanel=null;}mobL1.classList.remove('shifted');}
+
+// Build L2 sub-panels from existing mega menu HTML
+document.querySelectorAll('.nav-item.has-mega').forEach(function(item){
+  const link=item.querySelector(':scope>.nav-link');
+  const mega=item.querySelector(':scope>.mega');
+  if(!link||!mega)return;
+  const title=link.childNodes[0].textContent.trim();
+
+  // Build sub-panel
+  const sp=document.createElement('div');
+  sp.className='mob-subpanel';
+
+  const spHdr=document.createElement('div');
+  spHdr.className='mob-sp-hdr';
+  spHdr.innerHTML='<button class="mob-back-btn" aria-label="Back"><i class="fas fa-chevron-left"></i></button><span class="mob-sp-title">'+title+'</span><div style="width:44px"></div>';
+  sp.appendChild(spHdr);
+
+  const spBody=document.createElement('div');
+  spBody.className='mob-sp-body';
+  mega.querySelectorAll('.mega-col').forEach(function(col){
+    if(col.classList.contains('mega-promo'))return;
+    const h4=col.querySelector('h4');
+    const ul=col.querySelector('ul');
+    if(!ul)return;
+    const sec=document.createElement('div');
+    sec.className='mob-subsection';
+    if(h4){const sh=document.createElement('div');sh.className='mob-subsec-hdr';sh.textContent=h4.textContent;sec.appendChild(sh);}
+    sec.appendChild(ul.cloneNode(true));
+    spBody.appendChild(sec);
+  });
+  sp.appendChild(spBody);
+  nav.appendChild(sp);
+
+  // Back button
+  spHdr.querySelector('.mob-back-btn').addEventListener('click',closeSubPanel);
+
+  // Open sub-panel on mobile tap
+  link.addEventListener('click',function(e){if(innerWidth<=900){e.preventDefault();openSubPanel(sp);}});
+});
+
 hbg.onclick=()=>nav.classList.contains('open')?closeNav():openNav();
 if(mobClose)mobClose.onclick=closeNav;
 ov.onclick=closeNav;
-document.querySelectorAll('.nav-item.has-mega .nav-link').forEach(l=>l.addEventListener('click',function(e){if(innerWidth<=900){e.preventDefault();this.closest('.nav-item').classList.toggle('open');}}));
 
 // Search
 const sb=document.getElementById('srchWrap'),si=document.getElementById('srchInput');
