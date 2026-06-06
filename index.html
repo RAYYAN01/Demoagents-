@@ -339,25 +339,31 @@ p{font-size:.9375rem;color:var(--text-light);line-height:1.6}
 <header class="main-hdr" id="mainHdr">
   <div class="container nav-inner">
     <a href="#" class="logo">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 335 52" width="232" height="36" aria-label="Dell Technologies" focusable="false">
+      <!-- Stacked Dell Technologies logo – path-based, no external deps -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 57" width="108" height="47" aria-label="Dell Technologies" focusable="false">
         <defs>
-          <clipPath id="ec-hdr">
-            <polygon points="72,0 96,26 72,52 48,26"/>
-          </clipPath>
+          <!-- Diagonal stripe pattern (parallel to diamond sides, / direction) -->
+          <pattern id="dp-h" patternUnits="userSpaceOnUse" width="10" height="10">
+            <rect width="10" height="10" fill="#007DC6"/>
+            <line x1="-5" y1="5"  x2="5"  y2="-5" stroke="white" stroke-width="3.6"/>
+            <line x1="0"  y1="10" x2="10" y2="0"  stroke="white" stroke-width="3.6"/>
+            <line x1="5"  y1="15" x2="15" y2="5"  stroke="white" stroke-width="3.6"/>
+          </pattern>
         </defs>
-        <!-- D (path-based, no font dependency) -->
-        <path fill-rule="evenodd" fill="#5B80C4" d="M 0,0 L 0,52 L 20,52 A 26,26 0 0 1 20,0 Z M 9,9 L 9,43 L 20,43 A 17,17 0 0 1 20,9 Z"/>
-        <!-- Diamond E with 3 horizontal white bars -->
-        <polygon points="72,0 96,26 72,52 48,26" fill="#5B80C4"/>
-        <rect x="0" y="12.5" width="200" height="7" fill="white" clip-path="url(#ec-hdr)"/>
-        <rect x="0" y="22.5" width="200" height="7" fill="white" clip-path="url(#ec-hdr)"/>
-        <rect x="0" y="32.5" width="200" height="7" fill="white" clip-path="url(#ec-hdr)"/>
-        <!-- L1 (path-based) -->
-        <path fill="#5B80C4" d="M 98,0 L 98,52 L 136,52 L 136,43 L 107,43 L 107,0 Z"/>
-        <!-- L2 (path-based) -->
-        <path fill="#5B80C4" d="M 138,0 L 138,52 L 176,52 L 176,43 L 147,43 L 147,0 Z"/>
-        <!-- Technologies -->
-        <text x="182" y="40" font-family="Arial,'Helvetica Neue',Helvetica,sans-serif" font-weight="400" font-size="21" fill="#5B80C4">Technologies</text>
+        <!-- D: arc-path with inner counter (fill-rule evenodd) -->
+        <path fill-rule="evenodd" fill="#007DC6"
+          d="M 0,0 L 0,35 L 13,35 A 17.5,17.5 0 0 1 13,0 Z
+             M 7,6  L 7,29  L 12,29 A 11.5,11.5 0 0 1 12,6  Z"/>
+        <!-- Diamond E filled with diagonal stripes -->
+        <polygon points="52.5,0 70,17.5 52.5,35 35,17.5" fill="url(#dp-h)"/>
+        <!-- L1 -->
+        <path fill="#007DC6" d="M 74,0 L 74,35 L 100,35 L 100,27 L 82,27 L 82,0 Z"/>
+        <!-- L2 -->
+        <path fill="#007DC6" d="M 103,0 L 103,35 L 129,35 L 129,27 L 111,27 L 111,0 Z"/>
+        <!-- Technologies – centred below DELL -->
+        <text x="65" y="53" text-anchor="middle"
+          font-family="Arial,'Helvetica Neue',Helvetica,sans-serif"
+          font-weight="400" font-size="15.5" fill="#007DC6">Technologies</text>
       </svg>
     </a>
 
@@ -620,23 +626,30 @@ p{font-size:.9375rem;color:var(--text-light);line-height:1.6}
 <footer class="site-footer">
   <!-- Logo + Social Row -->
   <div class="container ft-top-row">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 335 52" width="192" height="30" aria-label="Dell Technologies" focusable="false">
+    <!-- Stacked Dell Technologies logo – white version for dark footer -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 57" width="90" height="39" aria-label="Dell Technologies" focusable="false">
       <defs>
-        <clipPath id="ec-ftr">
-          <polygon points="72,0 96,26 72,52 48,26"/>
-        </clipPath>
+        <pattern id="dp-f" patternUnits="userSpaceOnUse" width="10" height="10">
+          <rect width="10" height="10" fill="white"/>
+          <line x1="-5" y1="5"  x2="5"  y2="-5" stroke="#1d1d1d" stroke-width="3.6"/>
+          <line x1="0"  y1="10" x2="10" y2="0"  stroke="#1d1d1d" stroke-width="3.6"/>
+          <line x1="5"  y1="15" x2="15" y2="5"  stroke="#1d1d1d" stroke-width="3.6"/>
+        </pattern>
       </defs>
-      <!-- D (path-based) -->
-      <path fill-rule="evenodd" fill="white" d="M 0,0 L 0,52 L 20,52 A 26,26 0 0 1 20,0 Z M 9,9 L 9,43 L 20,43 A 17,17 0 0 1 20,9 Z"/>
-      <!-- Diamond E with dark bars -->
-      <polygon points="72,0 96,26 72,52 48,26" fill="white"/>
-      <rect x="0" y="12.5" width="200" height="7" fill="#1d1d1d" clip-path="url(#ec-ftr)"/>
-      <rect x="0" y="22.5" width="200" height="7" fill="#1d1d1d" clip-path="url(#ec-ftr)"/>
-      <rect x="0" y="32.5" width="200" height="7" fill="#1d1d1d" clip-path="url(#ec-ftr)"/>
-      <!-- L1 (path-based) -->
-      <path fill="white" d="M 98,0 L 98,52 L 136,52 L 136,43 L 107,43 L 107,0 Z"/>
-      <!-- L2 (path-based) -->
-      <path fill="white" d="M 138,0 L 138,52 L 176,52 L 176,43 L 147,43 L 147,0 Z"/>
+      <!-- D -->
+      <path fill-rule="evenodd" fill="white"
+        d="M 0,0 L 0,35 L 13,35 A 17.5,17.5 0 0 1 13,0 Z
+           M 7,6  L 7,29  L 12,29 A 11.5,11.5 0 0 1 12,6  Z"/>
+      <!-- Diamond E -->
+      <polygon points="52.5,0 70,17.5 52.5,35 35,17.5" fill="url(#dp-f)"/>
+      <!-- L1 -->
+      <path fill="white" d="M 74,0 L 74,35 L 100,35 L 100,27 L 82,27 L 82,0 Z"/>
+      <!-- L2 -->
+      <path fill="white" d="M 103,0 L 103,35 L 129,35 L 129,27 L 111,27 L 111,0 Z"/>
+      <!-- Technologies -->
+      <text x="65" y="53" text-anchor="middle"
+        font-family="Arial,'Helvetica Neue',Helvetica,sans-serif"
+        font-weight="400" font-size="15.5" fill="rgba(255,255,255,0.8)">Technologies</text>
       <!-- Technologies -->
       <text x="182" y="40" font-family="Arial,'Helvetica Neue',Helvetica,sans-serif" font-weight="400" font-size="21" fill="rgba(255,255,255,0.75)">Technologies</text>
     </svg>
